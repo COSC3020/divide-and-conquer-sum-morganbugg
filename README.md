@@ -49,4 +49,4 @@ T(n) = 3T(n/3) + n<br>
      = 3^(i)T(n/3^(i)) + in<br>
      = 3^(log₃n)T(n/3^(log₃n)) + log₃n\*n<br>
      = n\*1 + log₃n\*n<br>
-     = n + log₃n\*n ∈ Θ(nlogn)<br>'
+     = n + log₃n\*n ∈ Θ(nlogn)<br>
