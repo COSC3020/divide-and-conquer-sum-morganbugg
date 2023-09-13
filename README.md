@@ -26,3 +26,27 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+## Runtime Analysis Answer
+
+We can reason the following about the function:
+- if the array has either 0, 1, 2, or 3 elements, return the sum of those elements or 0 and stop (1)
+- split the array into 3 approximately equal thirds (1)
+- add each third recursively using sumRange (3T(n/3))
+- combine each sum (n)
+
+Using this reasoning, we can determine that the recurrence relation for T(n) would be the following:<br>\
+T = 1 if n <= 3<br>
+T = 3T(n/3) + n if n > 3
+
+With this recurrence relation in mind, we can determine Θ as follows:
+
+T(n) = 3T(n/3) + n<br>
+     = 3(3T((n/3)/3) + n/3) + n<br>
+     = 9T(n/9) + 2n<br>
+     = 9(3T((n/3)/9) + n/3) + 2n<br>
+     = 27T(n/27) + 3n<br>
+     = 3^(i)T(n/3^(i)) + in<br>
+     = 3^(log₃n)T(n/3^(log₃n)) + log₃n\*n<br>
+     = n\*1 + log₃n\*n<br>
+     = n + log₃n\*n ∈ Θ(nlogn)<br>'
